@@ -1,38 +1,391 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+
+:root {
+  --Strong-cyan: hsl(172, 67%, 45%);
+  --Very-dark-cyan: hsl(183, 100%, 15%);
+  --Dark-grayish-cyan: hsl(186, 14%, 43%);
+  --Grayish-cyan: hsl(184, 14%, 56%);
+  --Light-grayish-cyan: hsl(185, 41%, 84%);
+  --Very-light-grayish-cyan: hsl(189, 41%, 97%);
+  --White: hsl(0, 0%, 100%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button {
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
+  background-color: var(--Light-grayish-cyan);
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  font-family: "Space Mono", monospace;
+  min-width: 100vw;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  /* width: 80%; */
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 5rem;
+  margin: 0 auto;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input {
+  font-family: "Space Mono", monospace;
+}
+
+.calculator {
+  background-color: white;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* width: 50vw; */
+  border-radius: 1rem;
+}
+
+.first {
+  padding: 1rem;
+  padding-right: 2rem;
+  /* width: 20rem; */
+}
+
+.calculator .first p {
+  font-size: 15px;
+  color: var(--Dark-grayish-cyan);
+}
+.billInput {
+  position: relative;
+}
+
+.billInput span {
+  position: absolute;
+  left: 3%;
+  top: 15%;
+  padding-right: 10px;
+  color: var(--Grayish-cyan);
+}
+
+.billInput input {
+  padding-right: 40px;
+  width: 100%;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  border-color: transparent;
+  background-color: var(--Very-light-grayish-cyan);
+  font-size: 17px;
+}
+
+.billInput input:focus {
+  outline: none;
+  border-color: var(--Strong-cyan);
+  box-shadow: none;
+  border-style: solid;
+}
+
+.billInput input::placeholder {
+  color: var(--Grayish-cyan);
+  font-size: 15px;
+  text-align: right;
+  font-family: "Space Mono", monospace;
+}
+
+.peopleInput {
+  position: relative;
+}
+
+.peopleInput span {
+  position: absolute;
+  left: 3%;
+  top: 15%;
+  padding-right: 10px;
+  color: var(--Grayish-cyan);
+}
+
+.peopleInput input {
+  padding-right: 40px;
+  width: 100%;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
+  border-color: transparent;
+  background-color: var(--Very-light-grayish-cyan);
+  font-size: 17px;
+}
+
+.peopleInput input::placeholder {
+  color: var(--Grayish-cyan);
+  font-size: 15px;
+  text-align: right;
+  font-family: "Space Mono", monospace;
+}
+
+.first .tip {
+  margin-top: 1rem;
+}
+
+.tipPercent {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   color: white;
+  gap: 0.5rem;
+  margin-top: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.option {
+  text-align: center;
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-family: "Space Mono", monospace;
+  color: white;
+  font-size: 15px;
+  background-color: var(--Very-dark-cyan);
+}
+.option:hover {
+  background-color: var(--Strong-cyan);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.option-click {
+  text-align: center;
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-family: "Space Mono", monospace;
+  color: white;
+  font-size: 15px;
+  background-color: var(--Strong-cyan);
+  width: 6rem;
+}
+
+/* .option:focus {
+  background-color: var(--Strong-cyan);
+} */
+
+.percent {
+  text-align: center;
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.5rem;
+  border-color: transparent;
+  background-color: var(--Very-light-grayish-cyan);
+}
+
+.percent::placeholder {
+  font-family: "Space Mono", monospace;
+  font-size: 15px;
+}
+
+.percent:focus {
+  outline: none;
+  border-color: var(--Strong-cyan);
+  box-shadow: none;
+  border-style: solid;
+}
+.noOfppl:focus {
+  outline: none;
+  border-color: orange;
+  box-shadow: none;
+  border-style: solid;
+}
+.option,
+.percent {
+  width: 6rem;
+}
+
+.bill {
+  margin-bottom: 0.7rem;
+}
+
+.people {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.second {
+  background-color: var(--Very-dark-cyan);
+  border-radius: 1rem;
+  padding: 0 2rem;
+  width: 23rem;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-around; */
+  gap: 2rem;
+}
+
+.amount {
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.tip-amount {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tip-amount div h4 {
+  color: var(--Light-grayish-cyan);
+  font-size: 14px;
+}
+
+.tip-amount div p {
+  color: var(--Dark-grayish-cyan);
+  font-size: 13px;
+}
+
+.tip-amount input {
+  background-color: transparent;
+  border: none;
+  font-family: "Space Mono", monospace;
+  font-size: 35px;
+  width: 50%;
+  text-align: right;
+  color: var(--Strong-cyan);
+}
+
+.total {
+  background-color: transparent;
+  border: none;
+  font-family: "Space Mono", monospace;
+  font-size: 35px;
+  width: 50%;
+  text-align: right;
+  color: var(--Strong-cyan);
+}
+
+.tip-amount input::placeholder {
+  font-size: 35px;
+  color: var(--Strong-cyan);
+}
+
+.tip-amount-1 {
+  margin-top: 2.8rem;
+}
+
+.tip-amount-2 {
+  margin-top: 0rem;
+}
+
+.reset-btn {
+  margin-top: 4rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--Strong-cyan);
+  font-family: "Space Mono", monospace;
+  font-size: 15px;
+  border-radius: 0.3rem;
+  border: none;
+}
+
+.reset-btn:hover {
+  background-color: hsl(172, 68%, 50%);
+}
+
+@media (max-width: 900px) {
+  .calculator {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
   }
-  to {
-    transform: rotate(360deg);
+  .reset-btn {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 440px) {
+  .logo {
+    margin-top: 1rem;
+  }
+
+  .container {
+    height: 100vh;
+  }
+
+  .calculator {
+    /* padding: 0.5rem; */
+    width: 90%;
+    height: 76%;
+  }
+  .billInput input {
+    width: 18rem;
+  }
+
+  .percent {
+    width: auto;
+  }
+
+  .tipPercent {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 90%;
+  }
+
+  .option,
+  .percent {
+    width: 9rem;
+  }
+  .peopleInput input {
+    width: 18rem;
+  }
+
+  .noOfppl {
+    width: 18rem;
+  }
+
+  .second {
+    width: 90%;
+  }
+
+  .first {
+    /* padding: 1rem; */
+    padding-left: 0.5rem;
+  }
+
+  .second {
+    height: 100%;
+    gap: 0.5rem;
+  }
+
+  .reset-btn {
+    margin-top: -0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .total {
+    font-size: 25px;
+  }
+  .tip-amount div h4 {
+    font-size: 12px;
+  }
+  .tip-amount div p {
+    font-size: 11px;
+  }
+
+  .tip-amount-1 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .tip-amount-2 {
+    margin-bottom: 1rem;
   }
 }
